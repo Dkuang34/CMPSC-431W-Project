@@ -13,6 +13,7 @@ def index():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login(): #login request. returns home page if valid login, flash message if invalid
+    error = None
     if request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('password')
