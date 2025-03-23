@@ -1,23 +1,30 @@
-import pandas as pd
+import csv
 import hashlib
 import sqlite3
-import sys
 
 # Define file names
-CSV_FILE = 'Users.csv'
-DB_FILE = 'database.db'
 
+def sha256hash(password):
+    hashed_pw =  hashlib.sha256(password.encode()).hexdigest()
+    return hashed_pw
 
-def hash_password(password):
-    sha_signature = hashlib.sha256(password.encode()).hexdigest()
-    return sha_signature
-print(hash_password("<PASSWORD>"))
+# Connect to (or create) the SQLite database
+connection = sqlite3.connect('database.db')
+cursor = connection.cursor()
 
-with open(CSV_FILE) as csvfile:
-    reader = csv.reader(csvfile)
+# Create the USERS table if it doesn't exist
+cursor.execute('CREATE TABLE IF NOT EXISTS USERS (email TEXT PRIMARY KEY NOT NULL, password TEXT NOT NULL)')
 
+# Read from CSV and insert rows
+with open('Users.csv', 'r') as file:
+    reader = csv.reader(file)
+    for row in reader:
+        email = row[0]
+        # Hash the password
+        hashed_password = sha256hash(row[1])
+        # Insert into the USERS table
+        cursor.execute('INSERT INTO USERS VALUES (?, ?)', (email, hashed_password))
 
-
-
-
-
+# Commit the transaction and close the connection
+connection.commit()
+connection.close()
