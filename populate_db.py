@@ -45,7 +45,7 @@ def populate_users(cursor):
     # Load data from Sellers.csv
     try:
         print("\nProcessing Sellers.csv...")
-        sellers_df = pd.read_csv('Sellers.csv')
+        sellers_df = pd.read_csv('CSV Files/Sellers.csv')
         print(f"Found {len(sellers_df)} sellers")
         
         for index, row in sellers_df.iterrows():
@@ -73,7 +73,7 @@ def populate_users(cursor):
     # Load data from Buyers.csv
     try:
         print("\nProcessing Buyers.csv...")
-        buyers_df = pd.read_csv('Buyers.csv')
+        buyers_df = pd.read_csv('CSV Files/Buyers.csv')
         print(f"Found {len(buyers_df)} buyers")
         
         for index, row in buyers_df.iterrows():
@@ -100,7 +100,7 @@ def populate_users(cursor):
     # Load data from Helpdesk.csv
     try:
         print("\nProcessing Helpdesk.csv...")
-        helpdesk_df = pd.read_csv('Helpdesk.csv')
+        helpdesk_df = pd.read_csv('CSV Files/Helpdesk.csv')
         print(f"Found {len(helpdesk_df)} helpdesk staff")
         
         for index, row in helpdesk_df.iterrows():
