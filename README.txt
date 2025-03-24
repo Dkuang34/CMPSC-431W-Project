@@ -1,4 +1,4 @@
-Overall, this project thus far is a simple login screen for all the users in our database. Essentially, when you run it, you are presented with a user login screen. This screen prompts the user to enter their login, consisting of a username (email) and password. Upon entering their information, if it is incorrect, red text will show up to tell them the username or password is incorrect. However, if their information is correct, they are directed to the NittanyBusiness homepage, which is not finished as of right now.
+Overall, this project thus far is a simple login screen for all the users of our NittanyBusiness platform. Essentially, when you run it, you are presented with a user login screen. This screen prompts the user to enter their login, consisting of a username (email) and password. Upon entering their information, if it is incorrect, red text will show up to tell them the username or password is incorrect. However, if their information is correct, they are directed to the NittanyBusiness homepage, which is not finished as of right now.
 
 There are 4 main files within this project, each of which I will give a short description of:
 
